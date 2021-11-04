@@ -12,21 +12,26 @@ None                    未解锁
 ~~~~
 
 ## 特性
+
 - 使用 clash-core，原生支持 Shadowsocks，Trojan，V2Ray
 - 支持普通/快速测试，可以反映解锁状态（快速测试只检查全解锁，其他状态为无解锁）
 - 支持 Netflix 解锁测试，分为 全解锁 / 仅解锁自制剧 / 无解锁 三档
 - 可上传 Gist 方便后续使用
 
 ## 相关依赖
+
 Python第三方库 见 `requirements.txt`
 
 ## 支持平台
+
 ### 已测试平台
+
 1. Windows 10 x64
 2. Debian 10 x64
 3. Ubuntu 20 x64
 
 ## 致谢
+
 - [Dreamacro](https://github.com/Dreamacro/clash)
 - [PauperZ](https://github.com/PauperZ/SSRSpeedN)
 
@@ -50,11 +55,13 @@ Python第三方库 见 `requirements.txt`
 ~~~~
 
 2. 安装第三方库:
+
 ~~~~bash
 pip install -r requirements.txt
 ~~~~
 
 3. 运行程序：
+
 ~~~~bash
 python3 ./main.py
 ~~~~
