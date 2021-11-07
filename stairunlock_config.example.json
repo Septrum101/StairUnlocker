@@ -3,7 +3,7 @@
   "mixPort": 7890,
   "controlPort": 9090,
   "fastMode": true,
-  "converterAPI": "https://subcon.dlj.tf",
+  "converterAPI": "https://api.dler.io",
   "subURL": "",
   "include": "",
   "exclude": "IPV6|本站|剩余|过期|用户|官网",

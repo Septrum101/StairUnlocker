@@ -35,9 +35,11 @@ def upload(content):
                                  data=json.dumps({"files": {"stairunlocker": {"content": content}}}),
                                  headers={"Authorization": "token " + config['token'],
                                           "Accept": "application/vnd.github.v3+json"})
-        if mod_file.status_code != 200:
+        if mod_file.status_code == 404:
             logger.error(json.loads(mod_file.text)['message'])
             create()
-        else:
-            logger.info("Writing to Gist success!\nRaw URL: " + generate_url(json.loads(mod_file.text)['files']
+        elif mod_file.status_code == 200:
+            logger.info("Writing to gist success!\nRaw URL: " + generate_url(json.loads(mod_file.text)['files']
                                                                              ['stairunlocker']['raw_url']))
+        else:
+            logger.error(json.loads(mod_file.text)['message'])

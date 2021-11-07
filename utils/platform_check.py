@@ -1,11 +1,8 @@
 import platform
 
-from loguru import logger
-
 
 def check_platform():
     tmp = platform.platform()
-    logger.info("Platform Info : {}".format(str(tmp)))
     if "Windows" in tmp:
         return "Windows"
     elif "Linux" in tmp:

@@ -3,6 +3,7 @@
 import json
 import socket
 import sys
+from platform import platform
 
 import requests
 import yaml
@@ -16,7 +17,8 @@ from utils.netflix import is_unlock
 from utils.upload_gist import upload
 
 try:
-    logger.info("StairUnlocker is staring. Version: " + config['VERSION'])
+    logger.critical("StairUnlocker is staring. Version: " + config['VERSION'])
+    logger.info("Platform Info : {}".format(platform()))
     check_port(config["mixPort"])
     logger.error("Port {} already in use,".format(
         config["mixPort"]) + " please change the local port in stairunlock_config.json or terminate the application.")
@@ -25,6 +27,8 @@ except (ConnectionRefusedError, socket.timeout):
     pass
 
 if __name__ == "__main__":
+    logger.error("localFile: on") if config['localFile'] else logger.error("upload gist: on")
+    logger.error("fastMode: on") if config['fastMode'] else logger.error("fastMode: off")
     # 生成clash配置文件
     proxies = yaml.safe_load(get_proxies())
     cfg = {"mode": "global",
