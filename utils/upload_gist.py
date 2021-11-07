@@ -36,10 +36,10 @@ def upload(content):
                                  headers={"Authorization": "token " + config['token'],
                                           "Accept": "application/vnd.github.v3+json"})
         if mod_file.status_code == 404:
-            logger.error(json.loads(mod_file.text)['message'])
+            logger.error("Writing to gist fail: " + json.loads(mod_file.text)['message'])
             create()
         elif mod_file.status_code == 200:
             logger.info("Writing to gist success!\nRaw URL: " + generate_url(json.loads(mod_file.text)['files']
                                                                              ['stairunlocker']['raw_url']))
         else:
-            logger.error(json.loads(mod_file.text)['message'])
+            logger.error("Writing to gist fail: " + json.loads(mod_file.text)['message'])
