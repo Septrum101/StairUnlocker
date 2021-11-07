@@ -10,6 +10,9 @@ def get_proxies():
                                                 "target": "clash",
                                                 "list": "true",
                                                 "include": config['include'],
-                                                "exclude": config['exclude']}).text
+                                                "exclude": config['exclude']})
+    if ret.status_code != 200:
+        logger.error(ret.text)
+        raise Exception("Invalid link.")
     logger.info("Converted url to clash config file.")
-    return ret
+    return ret.text

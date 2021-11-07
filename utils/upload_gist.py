@@ -17,10 +17,16 @@ def upload(content):
                         json.loads(create_file.text)['files']['stairunlocker']['raw_url'])
         else:
             logger.error(json.loads(create_file.text)['message'])
+            raise Exception(json.loads(create_file.text)['message'])
         config.update({'gistURL': json.loads(create_file.text)['url']})
         config.pop("VERSION")
         with open('stairunlock_config.json', 'w', encoding='utf-8') as _:
             json.dump(config, _, indent=2, ensure_ascii=False)
+
+    def generate_url(raw):
+        raw = raw.split('/')
+        raw.pop(-2)
+        return "/".join(raw)
 
     if 'gistURL' not in config or config['gistURL'] == "":
         create()
@@ -33,5 +39,5 @@ def upload(content):
             logger.error(json.loads(mod_file.text)['message'])
             create()
         else:
-            logger.info("Writing to Gist success!\nRaw URL: " +
-                        json.loads(mod_file.text)['files']['stairunlocker']['raw_url'])
+            logger.info("Writing to Gist success!\nRaw URL: " + generate_url(json.loads(mod_file.text)['files']
+                                                                             ['stairunlocker']['raw_url']))

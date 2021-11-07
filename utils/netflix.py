@@ -6,9 +6,8 @@ from utils.config import config
 
 def is_unlock(name, mix_port, curr_node, total_node):
     try:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/64.0.3282.119 Safari/537.36"}
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                                 "Chrome/64.0.3282.119 Safari/537.36"}
         flag = 0
         if not config['fastMode']:
             # 自制剧

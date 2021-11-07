@@ -19,7 +19,7 @@ class Clash(object):
         return check_platform()
 
     def start_client(self):
-        logger.info("Performing Netflix test on port: {:d}.".format(config['mixPort']))
+        logger.info("Performing clash-core on port: {:d}.".format(config['mixPort']))
         try:
             if self._process is None:
                 if self._check_platform() == "Windows":
