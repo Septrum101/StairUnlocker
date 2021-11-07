@@ -19,18 +19,18 @@ class Clash(object):
         return check_platform()
 
     def start_client(self):
-        logger.info("Performing clash-core on port: {:d}.".format(config['mixPort']))
+        logger.info(f"Performing clash-core on port: {config['mixPort']}.")
         try:
             if self._process is None:
                 if self._check_platform() == "Windows":
                     self._process = subprocess.Popen(
-                        ["./clients/clash/clash-windows-amd64.exe", "-f", "%s/config.yaml" % os.getcwd()],
+                        ["./clients/clash/clash-windows-amd64.exe", "-f", f"{os.getcwd()}/config.yaml"],
                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                     logger.info("Starting clash-core")
                     time.sleep(3)
                 elif self._check_platform() == "Linux" or self._check_platform() == "MacOS":
                     self._process = subprocess.Popen(
-                        ["./clients/clash/clash-linux-amd64", "-f", "%s/config.yaml" % os.getcwd()],
+                        ["./clients/clash/clash-linux-amd64", "-f", f"{os.getcwd()}/config.yaml"],
                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                     logger.info("Starting clash-core")
                     time.sleep(3)

@@ -17,11 +17,11 @@ from utils.netflix import is_unlock
 from utils.upload_gist import upload
 
 try:
-    logger.critical("StairUnlocker is staring. Version: " + config['VERSION'])
-    logger.info("Platform Info : {}".format(platform()))
+    logger.critical(f"StairUnlocker is staring. Version: {config['VERSION']}")
+    logger.info(f"Platform Info : {platform()}")
     check_port(config["mixPort"])
-    logger.error("Port {} already in use,".format(
-        config["mixPort"]) + " please change the local port in stairunlock_config.json or terminate the application.")
+    logger.error(f"Port {config['mixPort']} already in use," +
+                 " please change the local port in stairunlock_config.json or terminate the application.")
     sys.exit(0)
 except (ConnectionRefusedError, socket.timeout):
     pass
@@ -49,17 +49,17 @@ if __name__ == "__main__":
         unlock_server_list = []
         for idx, server in enumerate(proxies["proxies"]):
             params = json.dumps({"name": server['name']}, ensure_ascii=False)
-            req_url = requests.put("http://127.0.0.1:%d/proxies/GLOBAL" % config['controlPort'],
+            req_url = requests.put(f"http://127.0.0.1:{config['controlPort']}/proxies/GLOBAL",
                                    data=params.encode('utf-8'))
-            if "Full" in is_unlock(server["name"], config['mixPort'], idx + 1, len(proxies["proxies"])):
+            if "Full" in is_unlock(server['name'], config['mixPort'], idx + 1, len(proxies['proxies'])):
                 unlock_server_list.append(server)
         if config['localFile']:
             with open('list.yaml', 'w', encoding='utf-8') as _:
-                yaml.safe_dump({"proxies": unlock_server_list}, _, allow_unicode=True)
+                yaml.safe_dump({'proxies': unlock_server_list}, _, allow_unicode=True)
             logger.info('Writing to list.yaml success!')
         else:
             # 上传到gist
-            upload(yaml.safe_dump({"proxies": unlock_server_list}, allow_unicode=True))
+            upload(yaml.safe_dump({'proxies': unlock_server_list}, allow_unicode=True))
     except Exception as e:
         logger.error(e.args[0])
     finally:
