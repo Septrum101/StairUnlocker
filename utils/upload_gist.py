@@ -13,7 +13,7 @@ def upload(content):
                                     headers={"Authorization": f"token {config['token']}",
                                              "Accept": "application/vnd.github.v3+json"})
         if create_file.status_code == 201:
-            logger.info("Writing to Gist success! Please visit: https://gists.github.com for details.")
+            logger.info("Writing to Gist success! Please visit: https://gist.github.com for details.")
         else:
             logger.error(json.loads(create_file.text)['message'])
             raise Exception(json.loads(create_file.text)['message'])
@@ -33,7 +33,7 @@ def upload(content):
             logger.error(f"Writing to gist fail: {json.loads(mod_file.text)['message']}. A new gist will be created.")
             create()
         elif mod_file.status_code == 200:
-            logger.info("Writing to gist success! Please visit: https://gists.github.com for details.")
+            logger.info("Writing to gist success! Please visit: https://gist.github.com for details.")
         else:
             logger.error(f"Writing to gist fail: {json.loads(mod_file.text)['message']}")
             raise json.loads(mod_file.text)['message']
