@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 */3 * * *'
 jobs:
-  batch_status:
+  batch_testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
