@@ -1,7 +1,8 @@
 name: Batch Netflix Unlock Test
 on:
   workflow_dispatch:
-
+  schedule:
+    - cron: '0 */3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
