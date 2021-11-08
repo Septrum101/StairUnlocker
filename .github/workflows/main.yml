@@ -1,0 +1,23 @@
+name: Batch Netflix Unlock Test
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: 'Setting Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+        
+      - name: Testing Netflix Unlock Status
+        env:
+            GISTURL: ${{GISTURL}}
+            SUBURL: ${{SUBURL}}
+            TOKEN: ${{TOKEN}}
+        run: |
+          pip install -r requirements.txt,
+          python main.py -g $GISTURL -u $SUBURL -t $TOKEN
