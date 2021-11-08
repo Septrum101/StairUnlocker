@@ -8,8 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: 'Setting Python'
-        uses: actions/setup-python@v1
+      - uses: actions/setup-python@v1
         with:
           python-version: '3.x'
         
@@ -19,6 +18,5 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
-          ls -al
           pip install -r requirements.txt
           python main.py -g $GISTURL -u $SUBURL -t $TOKEN
