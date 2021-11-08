@@ -20,7 +20,7 @@ None                    未解锁
 
 ## 相关依赖
 
-Python第三方库 见 `requirements.txt`
+Python第三方库 见 [`requirements.txt`](https://github.com/thank243/StairUnlocker/blob/master/requirements.txt)
 
 ## 支持平台
 
