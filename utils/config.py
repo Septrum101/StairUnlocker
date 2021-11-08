@@ -2,7 +2,7 @@ import json
 import os
 import shutil
 
-__version__ = "1.20"
+__version__ = "1.30"
 
 config = {"VERSION": __version__}
 

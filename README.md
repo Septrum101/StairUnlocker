@@ -41,16 +41,26 @@ Python第三方库 见 `requirements.txt`
 
 ~~~~json
 {
-  "localAddress": "127.0.0.1",   //clash的监听地址
-  "mixPort": 7890,    //clash的代理端口
-  "controlPort": 9090,  //clash的api端口
-  "fastMode": true,    //快速模式，只测试全解锁
-  "converterAPI": "https://subcon.dlj.tf",    //subconverter 服务器地址
-  "subURL": "",    //订阅地址
-  "include": "",    //节点包含关键字，支持正则
-  "exclude": "IPV6|本站|剩余|过期|用户|官网",    //排除节点关键字，支持正则
-  "localFile": true,   //true为导出到 list.yaml 文件，false为上传到Gist。若上传Gist，需申请github的token
-  "token": ""    //github token
+  "localAddress": "127.0.0.1",
+  //clash的监听地址
+  "mixPort": 7890,
+  //clash的代理端口
+  "controlPort": 9090,
+  //clash的api端口
+  "fastMode": true,
+  //快速模式，只测试全解锁
+  "converterAPI": "https://subcon.dlj.tf",
+  //subconverter 服务器地址
+  "subURL": "",
+  //订阅地址
+  "include": "",
+  //节点包含关键字，支持正则
+  "exclude": "IPV6|本站|剩余|过期|用户|官网",
+  //排除节点关键字，支持正则
+  "localFile": true,
+  //true为导出到 list.yaml 文件，false为上传到Gist。若上传Gist，需申请github的token
+  "token": ""
+  //github token
 }
 ~~~~
 
@@ -64,4 +74,20 @@ pip install -r requirements.txt
 
 ~~~~bash
 python3 ./main.py
+~~~~
+
+4. 命令参数：
+
+~~~~bash
+usage: main.py [-h] [-u SUBURL] [-t TOKEN] [-g GISTURL]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -u SUBURL, --url SUBURL
+                        Load config from subscription url
+  -t TOKEN, --token TOKEN
+                        The github token
+  -g GISTURL, --gist GISTURL
+                        The gist api URL
+
 ~~~~

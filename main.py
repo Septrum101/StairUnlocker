@@ -11,24 +11,26 @@ from loguru import logger
 
 from client_launcher.client_clash import Clash
 from utils.check_port import check_port
+from utils.cli import cli_opt
 from utils.config import config
 from utils.get_proxies import get_proxies
 from utils.netflix import is_unlock
 from utils.upload_gist import upload
 
 try:
-    logger.critical(f"StairUnlocker is staring. Version: {config['VERSION']}")
-    logger.info(f"Platform Info : {platform()}")
+    cli_opt()
+    logger.warning(f"StairUnlocker is staring. Version: {config['VERSION']}")
     check_port(config["mixPort"])
-    logger.error(f"Port {config['mixPort']} already in use," +
-                 " please change the local port in stairunlock_config.json or terminate the application.")
+    logger.error(f"Port {config['mixPort']} already in use, " +
+                 "please change the local port in stairunlock_config.json or terminate the application.")
     sys.exit(0)
 except (ConnectionRefusedError, socket.timeout):
     pass
 
 if __name__ == "__main__":
-    logger.error("localFile: on") if config['localFile'] else logger.error("upload gist: on")
-    logger.error("fastMode: on") if config['fastMode'] else logger.error("fastMode: off")
+    logger.warning("localFile: on") if config['localFile'] else logger.warning("upload gist: on")
+    logger.warning("fastMode: on") if config['fastMode'] else logger.warning("fastMode: off")
+    logger.info(f"Platform Info : {platform()}")
     # 生成clash配置文件
     proxies = yaml.safe_load(get_proxies())
     cfg = {"mode": "global",
