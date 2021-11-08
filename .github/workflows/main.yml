@@ -19,6 +19,6 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
-          ls -al,
-          pip install -r requirements.txt,
+          ls -al
+          pip install -r requirements.txt
           python main.py -g $GISTURL -u $SUBURL -t $TOKEN
