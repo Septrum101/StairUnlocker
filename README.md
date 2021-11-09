@@ -95,5 +95,5 @@ optional arguments:
 5. 使用actions自动更新
 
 ~~~~
-将项目fork后，设置环境变量 SUBURL, TOKEN, GISTURL 即可使用actions自动更新gist。
+将项目fork后，在本地运行一遍，然后将配置文件中的 SUBURL, TOKEN, GISTURL 设置到环境变量即可使用actions自动更新gist。
 ~~~~
