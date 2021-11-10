@@ -29,6 +29,7 @@ Python第三方库 见 [`requirements.txt`](https://github.com/thank243/StairUnl
 1. Windows 10 x64
 2. Debian 10 x64
 3. Ubuntu 20 x64
+4. macOS 10.15.7 x64
 
 ## 致谢
 
