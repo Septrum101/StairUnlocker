@@ -28,9 +28,15 @@ class Clash(object):
                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                     logger.info("Starting clash-core")
                     time.sleep(3)
-                elif self._check_platform() == "Linux" or self._check_platform() == "MacOS":
+                elif self._check_platform() == "Linux":
                     self._process = subprocess.Popen(
                         ["./clients/clash/clash-linux-amd64", "-f", f"{os.getcwd()}/config.yaml"],
+                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                    logger.info("Starting clash-core")
+                    time.sleep(3)
+                elif self._check_platform() == "MacOS":
+                    self._process = subprocess.Popen(
+                        ["./clients/clash/clash-darwin-amd64", "-f", f"{os.getcwd()}/config.yaml"],
                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                     logger.info("Starting clash-core")
                     time.sleep(3)
