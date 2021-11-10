@@ -1,0 +1,21 @@
+name: Batch Netflix Unlock Test (macOS)
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: '0 */3 * * *'
+jobs:
+  batch_testing:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - name: Testing Netflix Unlock Status
+        env:
+          GISTURL: ${{secrets.GISTURL}}
+          SUBURL: ${{secrets.SUBURL}}
+          TOKEN: ${{secrets.TOKEN}}
+        run: |
+          pip install -r requirements.txt
+          python main.py -g $GISTURL -u $SUBURL -t $TOKEN
