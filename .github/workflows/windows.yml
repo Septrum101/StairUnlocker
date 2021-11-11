@@ -17,6 +17,6 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
-          PSDefaultParameterValues['*:Encoding'] = 'utf8'
+          chcp 1200
           pip install -r requirements.txt
           python main.py -g $env:GISTURL -u $env:SUBURL -t $env:TOKEN
