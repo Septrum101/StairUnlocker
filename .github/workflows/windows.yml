@@ -17,6 +17,7 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
-          chcp 1200
+          chcp
+          chcp 936
           pip install -r requirements.txt
           python main.py -g $env:GISTURL -u $env:SUBURL -t $env:TOKEN
