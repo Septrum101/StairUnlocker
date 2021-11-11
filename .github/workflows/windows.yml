@@ -1,4 +1,4 @@
-name: Unlock Test (windows)
+name: Unlock Test (Windows)
 on:
   workflow_dispatch:
 #  schedule:
@@ -17,5 +17,6 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
+          chcp 65001
           pip install -r requirements.txt
           python main.py -g $env:GISTURL -u $env:SUBURL -t $env:TOKEN
