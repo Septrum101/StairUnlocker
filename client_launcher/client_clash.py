@@ -21,7 +21,6 @@ class Clash(object):
     def start_client(self):
         logger.info(f"Performing clash-core on port: {config['mixPort']}.")
         try:
-            client = ""
             if self._process is None:
                 if self._check_platform() == "Windows":
                     client = "clash-windows-amd64.exe"
@@ -32,11 +31,11 @@ class Clash(object):
                 else:
                     logger.critical("Your system does not supported. Please contact developer.")
                     sys.exit(1)
-            self._process = subprocess.Popen(
-                [f"./clients/clash/{client}", "-f", f"{os.getcwd()}/config.yaml"],
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            logger.info("Starting clash-core")
-            time.sleep(3)
+                self._process = subprocess.Popen(
+                    [f"./clients/clash/{client}", "-f", f"{os.getcwd()}/config.yaml"],
+                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                logger.info("Starting clash-core")
+                time.sleep(3)
         except FileNotFoundError:
             logger.error("Clash Core Not Found !")
             sys.exit(1)
