@@ -17,8 +17,5 @@ jobs:
           SUBURL: ${{secrets.SUBURL}}
           TOKEN: ${{secrets.TOKEN}}
         run: |
-          echo ($env:GISTURL) >> $env:GISTURL
-          echo ($env:SUBURL) >> $env:SUBURL
-          echo ($env:TOKEN) >> $env:TOKEN
           pip install -r requirements.txt
-          python main.py -g $GISTURL -u $SUBURL -t $TOKEN
+          python main.py -g $env:GISTURL -u $env:SUBURL -t $env:TOKEN
