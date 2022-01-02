@@ -11,7 +11,7 @@ def get_proxies():
                                                 "list": "true",
                                                 "include": config['include'],
                                                 "exclude": config['exclude']})
-    if ret.status_code != 200:
+    if ret.status_code > 300:
         logger.error(ret.text)
         raise Exception("Invalid link.")
     logger.info("Converted url to clash config file.")
