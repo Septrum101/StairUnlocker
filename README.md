@@ -83,13 +83,10 @@ python3 ./main.py
 usage: main.py [-h] [-u SUBURL] [-t TOKEN] [-g GISTURL]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -u SUBURL, --url SUBURL
-                        Load config from subscription url
-  -t TOKEN, --token TOKEN
-                        The github token
-  -g GISTURL, --gist GISTURL
-                        The gist api URL
+  -h, --help                   show this help message and exit
+  -u SUBURL, --url SUBURL      Load config from subscription url
+  -t TOKEN, --token TOKEN      The github token
+  -g GISTURL, --gist GISTURL   The gist api URL
 
 ~~~~
 
