@@ -37,7 +37,7 @@ class Clash(object):
                 logger.info("Starting clash-core")
                 time.sleep(3)
         except FileNotFoundError:
-            logger.error("Clash Core Not Found !")
+            logger.error("Clash Core Not Found!")
             sys.exit(1)
 
     def _before_stop_client(self):
